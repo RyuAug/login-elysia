@@ -65,7 +65,7 @@ class Faktor {
         if (tagihan > 200000 && tagihan <= 400000) return 3;
         if (tagihan > 400000 && tagihan <= 800000) return 4;
         return 5;
-    }
+    };
 
     hitungSkor():number {
         return (
@@ -75,7 +75,7 @@ class Faktor {
             this.skorDaya * 0.1 +
             this.skorTagihan * 0.1
         );
-    }
+    };
 
     golonganUKT():string {
         const skor = this.hitungSkor();
@@ -85,7 +85,7 @@ class Faktor {
         if (skor <= 20) return 'UKT G.4';
         if (skor <= 25) return 'UKT G.5';
         return 'UKT G.6';
-    }
+    };
 };
 
 
@@ -111,5 +111,5 @@ app.post('/ukt', ({ body }) => {
     return {
         skorAkhir: faktor.hitungSkor(),
         ukt: faktor.golonganUKT()
-    };  
+    };
 });
